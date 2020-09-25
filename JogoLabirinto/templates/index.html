@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+      font-family: "Montserrat", sans-serif;
+      color: #fff;
+    }
+
+    .text {     
+      font-weight: 700;
+      font-size: 5rem;
+      border: 3px solid #fff;
+      padding: 2rem 4rem;
+    }
+
+    .text_records {     
+      font-weight: 700;
+      font-size: 3rem;
+      line-height: 50px;
+    }
+    
+    .text_seq {     
+      font-weight: 700;
+      font-size: 2rem;
+      line-height: 50px;
+    }
+
+    .text_intro {
+      font-weight: 700;
+      font-size: 1.2rem;
+      line-height: 30px;
+    }
+ 
+
+    .gradient {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      height: 100vh;
+      width: 100vw;
+
+      background: linear-gradient(45deg, #084177, #687466, #cd8d7b, #fbc490);
+      background-size: 300% 300%;
+      animation: colors 15s ease infinite;
+    }
+
+    .container {
+    display: flex;
+    align-items: flex-end;
+    height:60%;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    text-align: center;
+    margin-right: 150px;
+    }
+
+    .container button {
+      border: none;
+      cursor: pointer;
+      background: #198b90;
+      display: inline-block;
+      margin: 0 -2px;
+      margin-bottom: -40px;
+      padding: 10px 20px;
+      border: 1px solid #666666;
+      height: 20vh;
+      width: 45vw;
+}
+
+    .container button:hover {
+    background: #333333;
+    }
+
+    .records{
+      margin-top : 50px;
+      margin-right : 50px;
+      margin-left : 180px;
+      align-items: flex-start;
+      justify-content: center;
+      height: 50vh;
+      width: 50vw;
+    }
+
+    .intro{
+      margin-top: 220px;
+      margin-left: -100px;
+      align-items: center;
+      justify-content: left;
+      height: 25vh;
+      width: 30vw;
+    }
+
+
+    @keyframes colors {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .text {
+        font-size: 1.5rem;
+        padding: 1rem 2rem;
+      }
+    }
+  </style>
+
+  <body class="gradient">
+    <h1 class="text">L.bin</h1>
+      <form action='/' method = 'post'>
+        <!--<input placeholder = 'Name' name = 'name'>-->
+        <div class="intro">
+          <div class = "text_seq">L.bin é um jogo de labirinto com obstáculos definidos pela cor. <br>Uso de mouse e teclado </div>
+          <br><br><div class = "text_intro">Selecione o nível que gostaria de jogar. Default, fácil ou dificíl</div> 
+      </div>
+     </form>
+    <div class = "records">
+        <h3 class="text_records"><span style="color:#198b90">Recordes</span></h3>
+          <br>    
+          <ol>
+              {% set cnt = [0] %}
+              {% for post in posts %}
+                  {% if cnt.append(cnt.pop() + 1) %}{% endif %} 
+                  {% if cnt[0] < 6 %}
+                      <div class = "text_seq"><li>{{post[1] + ': ' + post[2] }}</li></div>
+                  {% endif %}
+              {% endfor %}
+          </ol>  
+        <div class = "container">
+          <button type="button" onclick="window.location.href='{{ url_for( 'play') }}';"><h1 class = 'text_seq'>PLAY</h1></button> 
+          <button type="button" onclick="window.location.href='{{ url_for( 'play_easy') }}';"><h1 class = 'text_seq'>EASY</h1></button>
+          <button type="button" onclick="window.location.href='{{ url_for( 'play_hard') }}';"><h1 class = 'text_seq'>HARD</h1></button>
+      </div>   
+    </div>  
+   </body>
+</html> 
