@@ -1,5 +1,4 @@
 # Jogo-Labirinto
-Jogo feito em pygame, flask, html e css
 
 Aplicação em flask que permite o usuário jogar em níveis diferentes e armazena no banco de dados o tempo da partida (tempo do inicio do caminho até o destino. O labirinto possui obstáculos que devem ser removidos, ao colocar outro obstáculo que seja compatível (difença por cor). 
 
