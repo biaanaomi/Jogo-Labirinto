@@ -1,0 +1,5 @@
+azul
+roxo
+roxoesc
+verde
+amarelo

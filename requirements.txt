@@ -1,0 +1,15 @@
+click==7.1.2
+Flask==1.1.2
+Flask-Cors==3.0.9
+itsdangerous==1.1.0
+Jinja2==2.11.2
+MarkupSafe==1.1.1
+mysql==0.0.2
+mysql-connector-python==8.0.21
+mysqlclient==2.0.1
+numpy==1.19.2
+Pillow==7.2.0
+protobuf==3.13.0
+pygame==1.9.6
+six==1.15.0
+Werkzeug==1.0.1
